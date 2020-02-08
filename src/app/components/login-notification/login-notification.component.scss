@@ -1,0 +1,13 @@
+@mixin marigin-placement {
+  margin-top: 10px;
+}
+
+.successLogin {
+  @include marigin-placement;
+  color: green;
+}
+
+.errorLogin {
+  @include marigin-placement;
+  color: red;
+}
