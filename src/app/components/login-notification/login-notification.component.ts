@@ -2,9 +2,11 @@ import {
   Component
 } from '@angular/core';
 import {
+  Subject
+} from 'rxjs';
+import {
   SharedService
-} from 'src/app/services/shared/shared.service';
-import { Subject } from 'rxjs';
+} from '@app/services/shared/shared.service';
 
 @Component({
   selector: 'app-login-notification',

@@ -6,14 +6,14 @@ import {
 } from 'rxjs';
 import {
   SharedService
-} from 'src/app/services/shared/shared.service';
+} from '@app/services/shared/shared.service';
 
 @Component({
   selector: 'app-loader',
   templateUrl: './loader.component.html',
   styleUrls: ['./loader.component.scss']
 })
-export class LoaderComponent{
+export class LoaderComponent {
   isLoading: Subject < boolean > = this.sharedService.isLoading;
   constructor(private sharedService: SharedService) {}
 }

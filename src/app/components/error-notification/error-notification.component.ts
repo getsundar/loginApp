@@ -7,7 +7,8 @@ import {
 } from '@angular/forms';
 import {
   ValidationService
-} from 'src/app/services/validation/validation.service';
+} from '@app/services/validation/validation.service';
+
 @Component({
   selector: 'app-error-notification',
   templateUrl: './error-notification.component.html',

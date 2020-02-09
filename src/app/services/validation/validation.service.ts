@@ -14,7 +14,7 @@ export class ValidationService {
       minlength: 'Minimum length required ' + validatorValueLength,
       email: 'Invalid email',
       forbiddenName: 'Password must not contain first name or last name',
-      caseError: 'Password must contain atleast one lower and upper letters,'
+      caseError: 'Password must contain atleast one lower and upper letters'
     };
     return config[validatorName];
   }
@@ -35,7 +35,6 @@ export class ValidationService {
         caseError: true
       };
     }
-
   }
   static isEmpty(str) {
     return str === null || str === undefined || str === '';

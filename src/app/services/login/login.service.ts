@@ -6,17 +6,17 @@ import {
   HttpClient
 } from '@angular/common/http';
 import {
-  User
-} from 'src/app/models/user';
-import {
   catchError
 } from 'rxjs/operators';
 import {
   SharedService
 } from '../shared/shared.service';
 import {
+  User
+} from '@app/models/user';
+import {
   environment
-} from 'src/environments/environment';
+} from 'environments/environment';
 
 @Injectable({
   providedIn: 'root',

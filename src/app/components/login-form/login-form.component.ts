@@ -8,17 +8,18 @@ import {
   Validators
 } from '@angular/forms';
 import {
-  ValidationService
-} from 'src/app/services/validation/validation.service';
-import {
-  LoginService
-} from 'src/app/services/login/login.service';
-import {
   Subject
 } from 'rxjs';
 import {
+  LoginService
+} from '@app/services/login/login.service';
+import {
   SharedService
-} from 'src/app/services/shared/shared.service';
+} from '@app/services/shared/shared.service';
+import {
+  ValidationService
+} from '@app/services/validation/validation.service';
+
 
 @Component({
   selector: 'app-login-form',
