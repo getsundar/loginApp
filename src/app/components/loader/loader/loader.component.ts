@@ -1,6 +1,5 @@
 import {
-  Component,
-  OnInit
+  Component
 } from '@angular/core';
 import {
   Subject

@@ -3,7 +3,6 @@ import {
   ComponentFixture,
   TestBed
 } from '@angular/core/testing';
-
 import {
   LoginNotificationComponent
 } from './login-notification.component';

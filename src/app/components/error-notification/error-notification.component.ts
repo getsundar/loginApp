@@ -8,8 +8,6 @@ import {
 import {
   ValidationService
 } from 'src/app/services/validation/validation.service';
-
-
 @Component({
   selector: 'app-error-notification',
   templateUrl: './error-notification.component.html',
@@ -17,7 +15,6 @@ import {
 })
 export class ErrorNotificationComponent {
   @Input() control: FormControl;
-
   errorMessage() {
     for (const propertyName in this.control.errors) {
       if (this.control.errors.hasOwnProperty(propertyName) && this.control.touched) {

@@ -1,10 +1,6 @@
 import {
   Injectable
 } from '@angular/core';
-import {
-  ValidatorFn,
-  AbstractControl
-} from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -44,19 +40,21 @@ export class ValidationService {
   static isEmpty(str) {
     return str === null || str === undefined || str === '';
   }
-  static forbiddenNameValidator(): ValidatorFn {
-    return (control: AbstractControl): {
-      [key: string]: any
-    } | null => {
-      if (!ValidationService.isEmpty(control.value)) {
-        const forbidden = ((!ValidationService.isEmpty(control.parent.controls['firstName'].value) &&
-            control.value.toLowerCase().includes(control.parent.controls['firstName'].value.toLowerCase())) ||
-          ((!ValidationService.isEmpty(control.parent.controls['lastName'].value) &&
-            control.value.toLowerCase().includes(control.parent.controls['lastName'].value.toLowerCase()))));
-        return forbidden ? {
-          forbiddenName: true
-        } : null;
-      }
-    };
+  static forbiddenNameValidator(control) {
+    const forbiddenName = ValidationService.checkForNames(control);
+    return forbiddenName;
+  }
+  static checkForNames(control) {
+    if (!ValidationService.isEmpty(control.value)) {
+      const forbidden = ((!ValidationService.isEmpty(control.parent.controls['firstName'].value) &&
+          control.value.toLowerCase().includes(control.parent.controls['firstName'].value.toLowerCase())) ||
+        ((!ValidationService.isEmpty(control.parent.controls['lastName'].value) &&
+          control.value.toLowerCase().includes(control.parent.controls['lastName'].value.toLowerCase()))));
+      return forbidden ? {
+        forbiddenName: true
+      } : null;
+    } else {
+      return null;
+    }
   }
 }

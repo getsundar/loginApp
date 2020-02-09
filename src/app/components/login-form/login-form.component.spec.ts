@@ -74,7 +74,7 @@ describe('LoginFormComponent', () => {
       firstName: ['', [Validators.required]],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, ValidationService.emailValidator]],
-      password: ['', [Validators.required, Validators.minLength(8), ValidationService.forbiddenNameValidator(),
+      password: ['', [Validators.required, Validators.minLength(8), ValidationService.forbiddenNameValidator,
         ValidationService.caseValidator
       ]]
     });
