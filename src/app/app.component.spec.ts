@@ -52,7 +52,9 @@ import {
 import {
   MatProgressBarModule
 } from '@angular/material/progress-bar';
-
+import {
+  routes
+} from './app-routing.module';
 describe('AppComponent', () => {
   beforeEach(async (() => {
     TestBed.configureTestingModule({
@@ -68,7 +70,8 @@ describe('AppComponent', () => {
         MatButtonModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        MatProgressBarModule
+        MatProgressBarModule,
+        RouterTestingModule.withRoutes(routes),
       ],
       declarations: [
         AppComponent,

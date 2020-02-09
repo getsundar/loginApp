@@ -1,21 +1,23 @@
-<form class="form-container" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
-  <mat-form-field>
-    <input matInput placeholder="First Name" formControlName="firstName">
-    <app-error-notification [control]="loginForm.controls.firstName"></app-error-notification>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Last Name" formControlName="lastName">
-    <app-error-notification [control]="loginForm.controls.lastName"></app-error-notification>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Email" formControlName="email">
-    <app-error-notification [control]="loginForm.controls.email"></app-error-notification>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Password" formControlName="password" type="password">
-    <app-error-notification [control]="loginForm.controls.password"></app-error-notification>
-  </mat-form-field>
-  <button type="submit" mat-raised-button color="primary"
-    [disabled]="(!loginForm.valid||(isLoading|async))">Login</button>
-  <app-login-notification *ngIf="(showNotification | async)"></app-login-notification>
-</form>
+<div class="maincontainer">
+  <form class="form-container" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+    <mat-form-field>
+      <input matInput placeholder="First Name" formControlName="firstName">
+      <app-error-notification [control]="loginForm.controls.firstName"></app-error-notification>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Last Name" formControlName="lastName">
+      <app-error-notification [control]="loginForm.controls.lastName"></app-error-notification>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email">
+      <app-error-notification [control]="loginForm.controls.email"></app-error-notification>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Password" formControlName="password" type="password">
+      <app-error-notification [control]="loginForm.controls.password"></app-error-notification>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary"
+      [disabled]="(!loginForm.valid||(isLoading|async))">Login</button>
+    <app-login-notification *ngIf="(showNotification | async)"></app-login-notification>
+  </form>
+</div>

@@ -3,3 +3,17 @@
   flex-direction: column;
   width: 80%;
 }
+.maincontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 500px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: lightgrey solid 1px;
+}

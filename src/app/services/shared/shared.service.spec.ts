@@ -22,10 +22,12 @@ describe('SharedService', () => {
     expect(service).toBeTruthy();
   });
   it('showLoading - shared service', () => {
-    const functionCall = service.showLoading();
-    service.isLoading.subscribe((value) => {
+    let sharedService: SharedService = TestBed.get(SharedService);
+    sharedService.showLoading();
+    sharedService.getIsLoading().subscribe((isload) => {
       debugger;
-    })
+      expect(isload).toEqual(false);
+    });
     // const isLoadingSpy = spyOn(service, 'showLoading');
     // const isLoading = new Subject < boolean > ();
     // isLoadingSpy.;
