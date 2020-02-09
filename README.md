@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
 
+## Install dependencies
+
+Run 'npm install' to install the required dependencies.
+
 ## Run the application
 
 Run `npm run app` to run the web app. Navigate to `http://localhost:4200/'.
