@@ -12,7 +12,9 @@ import {
   FormBuilder,
   Validators
 } from '@angular/forms';
-
+import {
+  ValidationService
+} from '@app/services/validation/validation.service';
 describe('ErrorNotificationComponent', () => {
   let component: ErrorNotificationComponent;
   let fixture: ComponentFixture < ErrorNotificationComponent > ;
@@ -35,6 +37,16 @@ describe('ErrorNotificationComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('getValidatorErrorMessage - called', () => {
+    const formBuilder = new FormBuilder();
+    loginForm = formBuilder.group({
+      firstName: ['']
+    });
+    component.control = new FormControl(loginForm.controls['firstName']);
+    component.control.setValidators([Validators.required]);
+    component.control.setValue('');
+    expect(ValidationService.getValidatorErrorMessage('required')).toEqual('Required');
   });
   it('email field validity - email Invalid input', () => {
     const formBuilder = new FormBuilder();

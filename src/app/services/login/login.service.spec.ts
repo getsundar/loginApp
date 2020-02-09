@@ -10,12 +10,13 @@ import {
 import {
   HttpClientModule
 } from '@angular/common/http';
-import {
-  User
-} from 'src/app/models/user';
+
 import {
   HttpTestingController
 } from '@angular/common/http/testing';
+import {
+  User
+} from '@app/models/user';
 
 describe('LoginService', () => {
   let service: LoginService;

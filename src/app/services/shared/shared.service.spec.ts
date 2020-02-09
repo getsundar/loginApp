@@ -49,7 +49,7 @@ describe('SharedService', () => {
     expect(logFailInSpy).toHaveBeenCalled();
   });
   it('userLoggedInFail - shared service', () => {
-    service.userLoggedInSuccess();
+    service.userLoggedInFail();
     expect(loggedInSpy).toHaveBeenCalled();
     expect(logFailInSpy).toHaveBeenCalled();
   });

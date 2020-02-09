@@ -43,6 +43,9 @@ export class LoginFormComponent implements OnInit {
   }
   onSubmit(userData) {
     this.sharedService.showNotifications();
+    this.logUser(userData);
+  }
+  logUser(userData) {
     this.loginService.loginUser(userData).subscribe((data) => {
         this.sharedService.userLoggedInSuccess();
       },

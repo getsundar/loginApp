@@ -7,9 +7,6 @@ import {
   LoginFormComponent
 } from './login-form.component';
 import {
-  LoginService
-} from 'src/app/services/login/login.service';
-import {
   MatFormFieldModule
 } from '@angular/material/form-field';
 import {
@@ -38,19 +35,28 @@ import {
   BrowserAnimationsModule
 } from '@angular/platform-browser/animations';
 import {
-  ValidationService
-} from 'src/app/services/validation/validation.service';
-import {
   LoginNotificationComponent
 } from '../login-notification/login-notification.component';
 import {
+  ValidationService
+} from '@app/services/validation/validation.service';
+import {
   User
-} from 'src/app/models/user';
+} from '@app/models/user';
+import {
+  LoginService
+} from '@app/services/login/login.service';
+import {
+  SharedService
+} from '@app/services/shared/shared.service';
 
 describe('LoginFormComponent', () => {
   let component: LoginFormComponent;
   let fixture: ComponentFixture < LoginFormComponent > ;
   let errors = {};
+  let sharedService;
+  let reqData: User;
+  let respData;
   beforeEach(async (() => {
     TestBed.configureTestingModule({
         declarations: [LoginFormComponent, ErrorNotificationComponent, LoginNotificationComponent],
@@ -71,8 +77,20 @@ describe('LoginFormComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginFormComponent);
+    reqData = {
+      firstName: 'firstName',
+      lastName: 'lastName',
+      email: 'test@test.com',
+      password: 'test'
+    };
+    respData = [{
+      firstName: 'firstName',
+      lastName: 'lastName',
+      email: 'test@test.com',
+    }];
     component = fixture.componentInstance;
     const formBuilder = new FormBuilder();
+    sharedService = TestBed.get(SharedService);
     component.loginForm = formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', Validators.required],
@@ -89,15 +107,21 @@ describe('LoginFormComponent', () => {
     expect(component).toBeTruthy();
   });
   it('onSubmit - to be called', () => {
-    const reqData: User = {
-      firstName: 'firstName',
-      lastName: 'lastName',
-      email: 'test@test.com',
-      password: 'test'
-    };
     const submitSpy = spyOn(component, 'onSubmit');
     component.onSubmit(reqData);
     expect(submitSpy).toHaveBeenCalled();
+  });
+  it('onSubmit - return', () => {
+    const showNotificationSpy = spyOn(sharedService, 'showNotifications');
+    component.onSubmit(reqData);
+    expect(showNotificationSpy).toHaveBeenCalled();
+  });
+  it('Login - service', () => {
+    const loginService = TestBed.get(LoginService);
+    component.onSubmit(reqData);
+    const userLoginSpy = spyOn(loginService, 'loginUser');
+    loginService.loginUser(reqData);
+    expect(userLoginSpy).toHaveBeenCalled();
   });
   it('form invalid when empty', () => {
     expect(component.loginForm.valid).toBeFalsy();

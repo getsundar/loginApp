@@ -26,6 +26,9 @@ describe('ValidationService', () => {
     const service: ValidationService = TestBed.get(ValidationService);
     expect(service).toBeTruthy();
   });
+  it('get validation config', () => {
+    expect(ValidationService.getValidatorErrorMessage('required')).toEqual('Required');
+  });
   it('email ValidationService - valid', () => {
     const email = loginForm.controls['email'];
     email.setValue('test@test.com');
