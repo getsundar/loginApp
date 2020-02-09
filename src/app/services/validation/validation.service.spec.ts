@@ -71,4 +71,11 @@ describe('ValidationService', () => {
     password.setValue('testtName');
     expect(ValidationService.forbiddenNameValidator(password)).toEqual(null);
   });
+  it('check names ValidationService - Valid', () => {
+    const lastName = loginForm.controls['lastName'];
+    const password = loginForm.controls['password'];
+    lastName.setValue('lastName');
+    password.setValue('testtName');
+    expect(ValidationService.checkForNames(password)).toEqual(null);
+  });
 });

@@ -59,7 +59,6 @@ describe('AppComponent', () => {
   beforeEach(async (() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
         BrowserModule,
         AppRoutingModule,
         NoopAnimationsModule,

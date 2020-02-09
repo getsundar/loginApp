@@ -43,6 +43,9 @@ import {
 import {
   LoginNotificationComponent
 } from '../login-notification/login-notification.component';
+import {
+  User
+} from 'src/app/models/user';
 
 describe('LoginFormComponent', () => {
   let component: LoginFormComponent;
@@ -84,6 +87,17 @@ describe('LoginFormComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('onSubmit - to be called', () => {
+    const reqData: User = {
+      firstName: 'firstName',
+      lastName: 'lastName',
+      email: 'test@test.com',
+      password: 'test'
+    };
+    const submitSpy = spyOn(component, 'onSubmit');
+    component.onSubmit(reqData);
+    expect(submitSpy).toHaveBeenCalled();
   });
   it('form invalid when empty', () => {
     expect(component.loginForm.valid).toBeFalsy();

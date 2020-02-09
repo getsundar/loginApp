@@ -27,4 +27,10 @@ describe('LoginNotificationComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('color assigned', () => {
+    expect(component.color).toEqual('primary');
+  });
+  it('mode assigned', () => {
+    expect(component.mode).toEqual('indeterminate');
+  });
 });

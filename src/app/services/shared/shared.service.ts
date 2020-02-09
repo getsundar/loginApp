@@ -14,9 +14,6 @@ export class SharedService {
   showNotification = new Subject < boolean > ();
   userLoggedIn = new Subject < boolean > ();
   userLoggedInFailed = new Subject < boolean > ();
-  public getIsLoading(): Observable < boolean > {
-    return this.isLoading.asObservable();
-  }
   // pre loader
   showLoading() {
     this.isLoading.next(true);
